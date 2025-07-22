@@ -23,28 +23,41 @@
 ---
 
 ## 🧱 Architecture Diagram
-
-                 +-------------------------------------------+
-                 |     OSS / BSS / Portal (TMF Open APIs)    |
-                 |  (Ordering, Monitoring, Customer Mgmt)    |
-                 +--------------------↑----------------------+
-                                      |
-                                      | TMF APIs (Order, Catalog)
-                                      ↓
-      +--------------------------------------------------------------+
-      |         OpenSlice (Service & Slice Orchestrator)             |
-      |  - Service lifecycle, catalog mgmt, slice template mgmt      |
-      |  - Translates TMF API calls to orchestration instructions    |
-      +--------------------↓-------------------↓---------------------+
-                            |                   |
-                            | SOL005 / NFV APIs | Kubernetes APIs
-                            ↓                   ↓
-      +--------------------------+     +-----------------------------+
-      | OSM / NFVO               |     | Kubernetes (Edge / Core)    |
-      | - VNF lifecycle mgmt     |     | - CNFs: 5G Core, AI, MQTT   |
-      | - RO, VCA, MON           |     | - Namespaces for isolation  |
-      +--------------------------+     +-----------------------------+
-
+```
++--------------------------------------------------------------------------------+
+|                      OSS / BSS / Self-Service Portal (UI / APIs)              |
+|         (Service Ordering, Customer Management, Monitoring & Analytics)       |
++-----------------------------------------↑--------------------------------------+
+                                          |
+               TM Forum Open APIs (Service Catalog, Ordering, Inventory, etc.)   
+                                          ↓
++--------------------------------------------------------------------------------+
+|                    OpenSlice (Service & Slice Orchestrator)                   |
+| - Manages lifecycle of services and network slices                            |
+| - Exposes TM Forum APIs                                                       |
+| - Handles service catalog, orders, and templates                              |
+| - Translates service orders into resource-level orchestration requests        |
++-----------------------------------------↓--------------------------------------+
+                             SOL005 / ETSI NFV Orchestration APIs
+                                          ↓
++--------------------------------------------------------------------------------+
+|           OSM (Open Source MANO - ETSI NFV Orchestrator / NFVO)               |
+| - Instantiates, scales, and terminates VNFs and CNFs                          |
+| - Interacts with underlying infrastructure via VIMs and CIMs                  |
+| - Composed of: RO (Resource Orchestrator), VCA (Juju), MON                    |
++-----------------------------↓-----------------------------↓-------------------+
+                              |                             |
+              +---------------+---------------+   +---------+---------------+
+              |         OpenStack VIM         |   |       Kubernetes CIM     |
+              |         (Core / Cloud)        |   |       (Edge / Fog)       |
+              +---------------+---------------+   +---------+---------------+
+                              |                             |
+                +-------------+-----------+     +-----------+-------------+
+                |     VNFs (e.g.,         |     |    CNFs (e.g.,          |
+                |     MQTT Core,          |     |    Edge Broker,         |
+                |     IoT Gateway)        |     |    InfluxDB, AI Model)  |
+                +-------------------------+     +-------------------------+
+```
 
 ---
 
