@@ -1,0 +1,24 @@
+@startuml
+title edge5g-orchestrator: Final Demo Workflow (Zero-Touch 5G Service Deployment)
+
+actor User
+participant "Self-Service Portal\n(TM Forum APIs)" as Portal
+participant "Service Orchestrator\n(OpenSlice or Custom)" as Orchestrator
+participant "Kubernetes API\n(Helm/CRDs)" as K8s
+participant "5G CNF/VNF Functions\n(Open5GS, srsRAN, MQTT, etc.)" as CNFs
+participant "Monitoring Stack\n(Prometheus, Grafana, Jaeger)" as Monitoring
+
+User -> Portal: Submit Service Order (e.g., 5G Core Slice)
+Portal -> Orchestrator: Translate to Service Request (TMF Open APIs)
+Orchestrator -> Orchestrator: Validate & Decompose Service
+Orchestrator -> K8s: Deploy CNFs via Helm / CRDs
+K8s -> CNFs: Instantiate and configure services
+CNFs -> Monitoring: Send Metrics, Logs, Traces
+
+Monitoring -> Orchestrator: Send Status & Telemetry
+Orchestrator -> Portal: Service Provisioning Status (Success/Fail)
+Portal -> User: Show live metrics & logs
+
+User -> Monitoring: Access Grafana/Jaeger (via portal or dashboard)
+
+@enduml
