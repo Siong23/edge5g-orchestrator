@@ -1,26 +1,34 @@
 @startuml
-title edge5g-orchestrator: Final Demo Workflow with OSM (Zero-Touch 5G Deployment)
+title edge5g-orchestrator: Final Demo Workflow (OSM, OpenStack, Kubernetes)
 
 actor User
 participant "Self-Service Portal\n(TM Forum APIs)" as Portal
 participant "Service Orchestrator\n(OpenSlice or Custom)" as Orchestrator
 participant "OSM\n(Open Source MANO)" as OSM
-participant "Kubernetes API\n(Helm/CRDs)" as K8s
-participant "5G CNFs/VNFs\n(Open5GS, srsRAN, MQTT, etc.)" as CNFs
+participant "OpenStack\n(VIM for VNFs)" as OpenStack
+participant "Kubernetes API\n(for CNFs via Helm/CRDs)" as K8s
+participant "5G VNFs/CNFs\n(Open5GS, srsRAN, MQTT, etc.)" as Functions
 participant "Monitoring Stack\n(Prometheus, Grafana, Jaeger)" as Monitoring
 
-User -> Portal: Submit Service Order (e.g., Deploy 5G Slice)
-Portal -> Orchestrator: TMF API Request (Service Order)
-Orchestrator -> Orchestrator: Validate & Decompose Service
-Orchestrator -> OSM: Instantiate NSD/VNFDs (ETSI-compliant)
-OSM -> K8s: Deploy CNFs/VNFs via Helm/Operators
-K8s -> CNFs: Instantiate and Configure Functions
-CNFs -> Monitoring: Emit Metrics / Logs / Traces
+User -> Portal: Submit Service Order (Deploy 5G Service/Slice)
+Portal -> Orchestrator: TMF API (ServiceOrder)
+Orchestrator -> Orchestrator: Validate, Decompose, Select VIM/CIM
+Orchestrator -> OSM: Instantiate NSD/VNFDs
 
-Monitoring -> Orchestrator: Telemetry & Alerts
-Orchestrator -> Portal: Status & Health Feedback
-Portal -> User: Display Deployment Status & Observability
+group OSM Orchestration
+    OSM -> OpenStack: Deploy VM-based VNFs
+    OSM -> K8s: Deploy CNFs via Helm or CRDs
+end
 
-User -> Monitoring: Access Grafana/Jaeger UI (via Portal)
+OpenStack -> Functions: Start VNFs (e.g., HSS, AMF)
+K8s -> Functions: Launch CNFs (e.g., MQTT, AI Inference)
+
+Functions -> Monitoring: Send Metrics / Logs / Traces
+Monitoring -> Orchestrator: Push Alerts, KPIs, Health Info
+Orchestrator -> Portal: Status Update, KPIs
+Portal -> User: Show Real-Time Deployment Status
+
+User -> Monitoring: View Dashboards (Grafana, Jaeger)
 
 @enduml
+
