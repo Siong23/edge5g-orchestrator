@@ -6,19 +6,19 @@ This document outlines the 3 key milestones of our project, along with their tar
 
 ### 🚩 Milestone 1: Environment Setup and Initial Exploration
 - **Description:**
-  - Install and configure OpenStack environment using Sunbeam or DevStack
-  - Install OSM v16 following official documentation
+  - Install and configure OpenStack environment using microstack
+  - Install OSM v12 following official documentation
   - Gain basic understanding of VIMs, VNFs, NSDs, and LCM
-- **Target Date:** 31 July 2025
+- **Target Date:** 15 August 2025
 
 ---
 
 ### 🚩 Milestone 2:
 - **Description:**
-- **Target Date:** 31 August 2025
+- **Target Date:** 12 Septemeber 2025
 
 ---
 
 ### 🚩 Milestone 3:
 - **Description:**
-- **Target Date:** 30 September 2025
+- **Target Date:** 10 October 2025
