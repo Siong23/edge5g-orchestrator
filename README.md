@@ -59,55 +59,6 @@
                 +-------------------------+     +-------------------------+
 ```
 
----
-
-## 📦 Installation
-
-### ✅ Requirements
-
-- Kubernetes v1.24+
-- Helm v3.11+
-- OpenSlice & TM Forum API Gateway
-- (Optional) OSM or other NFVO
-- Docker, kubectl
-
-### 🔧 Setup
-
-```
-git clone https://github.com/your-org/edge5g-orchestrator.git
-cd edge5g-orchestrator
-```
-Install Helm charts:
-```
-helm install orchestrator ./helm/orchestrator -n orchestrator --create-namespace
-```
-Deploy CNFs:
-```
-helm install cnfs ./helm/cnfs -n edge-core
-```
-
-## Project Structure
-```
-edge5g-orchestrator/
-├── helm/                   # Helm charts for orchestrator and CNFs
-├── apis/                   # TM Forum API adapters and handlers
-├── descriptors/            # NSD/VNFD and slice templates
-├── charts/                 # Pre-packaged CNFs (AI, MQTT, 5G core)
-├── docs/                   # Documentation and diagrams
-├── monitoring/             # Prometheus, Grafana, Jaeger configs
-└── README.md
-```
-
-## Use Cases
-- Deploy and manage 5G core components and edge apps
-- Create, scale, and delete network slices on demand
-- Integrate vertical IoT applications via CNFs
-- Monitor performance and anomalies at the edge
-
-## 📊 Monitoring
-- Grafana: http://<host>:3000
-- Prometheus: http://<host>:9090
-- Jaeger: http://<host>:16686
 
 ## 📚 Documentation
 - System Overview
