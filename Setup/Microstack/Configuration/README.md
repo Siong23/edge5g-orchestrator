@@ -112,5 +112,8 @@ microstack.openstack keypair list
 ### 🌐 3.8 Configure Network Resources
 #### 3.8.1 Create Internal Network & Subnet (via Dashboard)
 - Navigate: Project → Network → Networks → Create Network
-
+  
+![Horizon Dashboard](./Images/Create_Network(Network).png)
+![Horizon Dashboard](./Images/Create_Network(Subnet).png)
+![Horizon Dashboard](./Images/Create_Network(SubnetDetails).png)
 - Fill in details and click Create
