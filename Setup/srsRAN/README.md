@@ -1,1 +1,0 @@
-# srsRAN Installation Guide
