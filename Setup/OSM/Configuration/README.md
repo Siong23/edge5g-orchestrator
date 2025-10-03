@@ -15,3 +15,12 @@ osm vim-create \
   --account_type openstack \
   --config='{security_groups: <security_group>, keypair: <keypair_name>}'
 ```
+
+---
+
+## ✅ 4. Verifying new VIM Status (via Dashboard)
+- Navigate: Dashboard → VIM Accounts
+  
+![New VIM Dashboard](./Images/New_VIM_Status.png)
+
+⚠️ **Note:** The Operational Status will become enable if successful.
