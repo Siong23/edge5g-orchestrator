@@ -5,7 +5,11 @@ This guide explains how to install and configure **MicroStack (OpenStack)** on U
 ---
 
 ## 1️⃣ Installing Ubuntu 22.04
-- 💽 Create a bootable USB with Ubuntu 22.04.
+- 💾 Create a bootable USB with Ubuntu 22.04.
+  - 💽 **Base Image:** Ubuntu 22.04 (64-bit)  
+    - [Ubuntu 22.04 **Cloud Image** (64-bit required)](https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-disk-kvm.img)
+    - [Ubuntu 22.04 **Server Image** (64-bit required)](http://releases.ubuntu.com/22.04/)
+
 - 🖥️ Install on Server 1 and set up user credentials.
 
 ---
