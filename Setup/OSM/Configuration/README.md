@@ -4,6 +4,11 @@
 ```bash
 export OSM_HOSTNAME=nbi.<hostname.ip>.nip.io:443
 ```
+> 💡 Replace `<hostname.ip>` with your actual hostname IP,  
+>    For example: `OSM_HOSTNAME=nbi.192.168.0.195.nip.io:443`.
+
+&nbsp;
+
 #### 3.1.2 Create new VIM
 ```bash
 osm vim-create \
