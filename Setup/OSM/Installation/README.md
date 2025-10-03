@@ -28,12 +28,18 @@ chmod +x install_osm.sh
 ./install_osm.sh
 ```
 
-🔍 Step 4: Verify OSM Components
+&nbsp;
+
+🔍 Verify OSM Components
 ```bash
 kubectl get all -n osm
 ```
+⚠️ **Note:** Make sure all the components is up and ready
 
-🔑 Step 5: Retrieve OSM Password
+&nbsp;
+
+🔑 Retrieve OSM Password
 ```bash
 kubectl -n osm get secret osm-secret -o jsonpath='{.data.OSM_SERVICE_PASSWORD}' | base64 --decode && echo
 ```
+⚠️ **Note:** Default username is "admin"
