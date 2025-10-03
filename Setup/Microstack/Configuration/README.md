@@ -112,8 +112,83 @@ microstack.openstack keypair list
 ### 🌐 3.8 Configure Network Resources
 #### 3.8.1 Create Internal Network & Subnet (via Dashboard)
 - Navigate: Project → Network → Networks → Create Network
-  
-![Horizon Dashboard](./Images/Create_Network(Network).png)
-![Horizon Dashboard](./Images/Create_Network(Subnet).png)
-![Horizon Dashboard](./Images/Create_Network(SubnetDetails).png)
 - Fill in details and click Create
+  
+![Create Network](./Images/Create_Network(Network).png)
+![Create Network Subnet](./Images/Create_Network(Subnet).png)
+![Create Network Subnet Details](./Images/Create_Network(SubnetDetails).png)
+
+
+#### 3.8.2 Create Router (via Dashboard)
+- Navigate: Project → Network → Routers → Create Router
+- Fill in details and click Create
+  
+![Create Router](./Images/Create_Router.png)
+
+#### 3.8.3 Adding subnet to the Router (via Dashboard)
+- Project → Network → Routers → Router Name → Interfaces → Add Interface
+- Select the subnet created and click Submit
+  
+![Create Router Subnet](./Images/Create_Router(Subnet).png)
+
+#### 3.8.4 Allocate Floating IP (via Dashboard)
+- Navigate: Project → Network → Floating IPs → Allocate IP
+- Select the external network pool and click Allocate IP
+  
+![Allocate Floating IP](./Images/Allocate_Floating_IP.png)
+
+&nbsp;
+
+### 🔒 3.9 Manage Security Groups
+#### 3.9.1 Create a security group
+```bash
+microstack.openstack security group create 5Gsecuritygroup
+```
+#### 3.9.2 List security groups
+```bash
+microstack.openstack security group list
+```
+#### 3.9.3 Add rules (via Dashboard)
+- Navigate: Project → Network → Security Groups → Manage Rules
+- Add rules for ICMP (ping) and SSH (port 22)
+- Fill in the form as the left figure below and click Add. Then repeat the step to add another rule as the right figure.
+  
+![Manage Rules](./Images/Add_Rule1.png)
+![Manage Rules](./Images/Add_Rule2.png)
+![Manage Rules List](./Images/Add_Rule_List.png)
+
+&nbsp;
+
+🖥️ 3.10 Launching Instances
+### 3.10.1 Launch Instance (CLI)
+```bash
+microstack.openstack server create --flavor 5gflavor --image ubuntucloud \
+--network internal-network --key-name server1key \
+--security-group 5Gsecuritygroup Microstack1
+```
+### 3.10.2 List Instances
+```bash
+microstack.openstack server list
+```
+### 3.10.3 Assign Floating IP (via Dashboard)
+- Navigate: Project → Compute → Instances → Actions → Associate Floating IP
+- Select the IP Address that has been allocated and click Associate
+
+![Manage Instances List](./Images/Instances_List.png)
+![Manage Floating IP Associatons](./Images/Manage_Floating_IP_Associatons.png)
+
+---
+
+## ✅ 4. Verifying MicroStack Installation
+### 4.1 Check OpenStack Services
+```bash
+microstack.openstack service list
+microstack.openstack endpoint list
+```
+⚠️ **Note:** Check that each service has the appropriate public, internal, and admin endpoints
+
+### 4.2 Verify Horizon Dashboard
+- Open in browser
+```bash
+https://<horizon_IP_address>
+```
