@@ -159,18 +159,18 @@ microstack.openstack security group list
 
 &nbsp;
 
-🖥️ 3.10 Launching Instances
-### 3.10.1 Launch Instance (CLI)
+### 🖥️ 3.10 Launching Instances
+#### 3.10.1 Launch Instance (CLI)
 ```bash
 microstack.openstack server create --flavor 5gflavor --image ubuntucloud \
 --network internal-network --key-name server1key \
 --security-group 5Gsecuritygroup Microstack1
 ```
-### 3.10.2 List Instances
+#### 3.10.2 List Instances
 ```bash
 microstack.openstack server list
 ```
-### 3.10.3 Assign Floating IP (via Dashboard)
+#### 3.10.3 Assign Floating IP (via Dashboard)
 - Navigate: Project → Compute → Instances → Actions → Associate Floating IP
 - Select the IP Address that has been allocated and click Associate
 
