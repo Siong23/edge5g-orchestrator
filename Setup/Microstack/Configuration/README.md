@@ -186,9 +186,3 @@ microstack.openstack service list
 microstack.openstack endpoint list
 ```
 ⚠️ **Note:** Check that each service has the appropriate public, internal, and admin endpoints
-
-### 4.2 Verify Horizon Dashboard
-- Open in browser
-```bash
-https://<horizon_IP_address>
-```
