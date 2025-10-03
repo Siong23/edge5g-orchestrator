@@ -22,7 +22,7 @@ sudo apt update
 sudo apt install -y make gcc g++ libsctp-dev lksctp-tools iproute2 cmake git
 ```
 
-📂 Step 2: Clone UERANSIM
+📂 Step 2: Clone UERANSIM repository
 ```bash
 git clone https://github.com/aligungr/UERANSIM.git
 ```
