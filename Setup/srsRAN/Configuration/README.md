@@ -83,3 +83,6 @@ db.subscribers.find().pretty()
 ```bash
 sudo gnb -c <your_gNB_filename>
 ```
+
+> 💡 Replace `<your_gnb_file.yaml>` with your actual gNB config file name,  
+>    For example: `open5gs_gnb.yaml`.
