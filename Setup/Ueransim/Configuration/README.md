@@ -1,6 +1,6 @@
 ## 3️⃣ Ueransim Configuration on Server 1
 ### 📝 3.1 Edit Open5gs gNB File
-#### 3.1.1 Check in directory UERANSIM/config/open5gs_gnb.yaml
+#### 3.1.1 Check in directory `UERANSIM/config/your_gnb_file.yaml`
 ```yaml
 mcc: '001'                # Mobile Country Code (must match Open5GS PLMN)
 mnc: '01'                 # Mobile Network Code (must match Open5GS PLMN)
@@ -27,10 +27,21 @@ slices:
 ignoreStreamIds: true
 ```
 
+⚠️ **Note:**  
+When running the gNB, make sure the following values in `open5gs_gnb.yaml` are the same as your **Open5GS configuration**:  
+
+- **AMF IP address (`amf.addr`)** → must match the AMF service IP in Open5GS  
+- **Port (`amf.port`)** → default is `38412` in Open5GS, use same in gNB config  
+- **PLMN (`plmn`)** → must match the MCC/MNC configured in Open5GS (e.g., `"00101"`)  
+- **Tracking Area Code (`tac`)** → must match Open5GS `tac`  
+- **Slice (`sst`, `sd`)** → must match the slice defined in Open5GS  
+
+✅ If these values don’t match, the gNB will fail to establish NGAP connection with Open5GS.
+
 &nbsp;
 
 ### 📝 3.2 Edit Open5gs UE File
-#### 3.2.1 Check in directory UERANSIM/config/open5gs_ue.yaml
+#### 3.2.1 Check in directory `UERANSIM/config/your_ue_file.yaml`
 ```yaml
 # IMSI number of the UE. IMSI = [MCC|MNC|MSISDN] (In total 15 digits)
 supi: 'imsi-001010987654321'
@@ -137,12 +148,24 @@ db.subscribers.find().pretty()
 ### 📡 4.1 Open three terminals
 - 🖥️ Terminal 1: Start gNB
 ```bash
-./build/nr-gnb -c config/open5gs_gnb.yaml
+./build/nr-gnb -c config/<your_gnb_file.yaml>
 ```
+
+> 💡 Replace `<your_gnb_file.yaml>` with your actual gNB config file name,  
+>    For example: `open5gs_gnb.yaml`.
+
+&nbsp;
+
 - 🖥️ Terminal 2: Start UE
 ```bash
-./build/nr-ue -c config/open5gs_ue.yaml
+./build/nr-ue -c config/<your_ue_file.yaml>
 ```
+
+> 💡 Replace `<your_ue_file.yaml>` with your actual gNB config file name,  
+>    For example: `open5gs_ue.yaml`.
+
+&nbsp;
+
 - 🖥️ Terminal 3: Verify UE Interface
 ```bash
 ip addr show uesimtun0
