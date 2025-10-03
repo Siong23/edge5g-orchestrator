@@ -27,3 +27,13 @@ chmod +x install_osm.sh
 ```bash
 ./install_osm.sh
 ```
+
+🔍 Step 4: Verify OSM Components
+```bash
+kubectl get all -n osm
+```
+
+🔑 Step 5: Retrieve OSM Password
+```bash
+kubectl -n osm get secret osm-secret -o jsonpath='{.data.OSM_SERVICE_PASSWORD}' | base64 --decode && echo
+```
