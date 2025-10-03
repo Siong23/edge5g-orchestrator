@@ -11,26 +11,29 @@ This guide explains how to install and configure **MicroStack (OpenStack)** on U
 ---
 
 ## 2️⃣ Install MicroStack
-- ⚙️ Install Curl
+- ⚙️ Step 1: Install Curl
   ```bash
   sudo apt install curl
   ```
   
-- 📦 Install the OpenStack snap
+- 📦 Step 2: Install the MicroStack snap
   ```bash
   sudo snap install microstack --channel latest/beta
   ```
   
-- 🛠️ Prepare the machine
+- 🛠️ Step 3: Prepare the machine
   ```bash
   sudo microstack init --auto --control
   ```
-  
+
+ &nbsp;
+ 
 - 🔑 Get MicroStack Password
   ```bash
   sudo snap get microstack config.credentials.keystone-password
   ```
 - 🔎 Verify Horizon Dashboard
+  
   - Open in browser
   ```bash
   https://<horizon_IP_address>
