@@ -43,3 +43,5 @@ This guide explains how to install and configure **MicroStack (OpenStack)** on U
   ```bash
   https://<horizon_IP_address>
   ```
+  > 💡 Replace `<horizon_IP_address>` with your actual gNB config file name,  
+  >    For example: `https://192.168.0.195`.
