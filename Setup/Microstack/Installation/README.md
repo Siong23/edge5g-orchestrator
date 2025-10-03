@@ -11,7 +11,7 @@ This guide explains how to install and configure **MicroStack (OpenStack)** on U
 ---
 
 ## 2️⃣ Install MicroStack
-- ⚙️ Install Curl:
+- ⚙️ Install Curl
   ```bash
   sudo apt install curl
   ```
@@ -20,6 +20,7 @@ This guide explains how to install and configure **MicroStack (OpenStack)** on U
   ```bash
   sudo snap install microstack --channel latest/beta
   ```
+  
 - 🛠️ Prepare the machine
   ```bash
   sudo microstack init --auto --control
