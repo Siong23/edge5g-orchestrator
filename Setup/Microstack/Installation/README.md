@@ -30,3 +30,8 @@ This guide explains how to install and configure **MicroStack (OpenStack)** on U
   ```bash
   sudo snap get microstack config.credentials.keystone-password
   ```
+- 🔎 Verify Horizon Dashboard
+  - Open in browser
+  ```bash
+  https://<horizon_IP_address>
+  ```
