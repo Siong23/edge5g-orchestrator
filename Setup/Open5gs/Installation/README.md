@@ -241,8 +241,11 @@ osm nspkg-create open5gs_ns
 ## 5️⃣ Deploy the Service
 🚀 Step 1: Instantiate NS
 ```bash
-osm ns-create --ns_name 5gSA_ns --nsd_name open5gs_ns --vim_account dummyvim
+osm ns-create --ns_name <ns_name> --nsd_name <nsd_name> --vim_account dummyvim
 ```
+> 💡 Replace `<ns_name>` and `<nsd_name>`with your NS name and actual NSD name.
+
+&nbsp;
 
 ⏳ Step 2: Wait for pods to start
 ```bash
