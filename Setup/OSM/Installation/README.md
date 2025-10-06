@@ -1,6 +1,6 @@
 # 🌐 OSM V17 Installation Guide
 
-This guide explains how to install and configure **OSM (Open Source MANO)** on Ubuntu 22.04.
+This guide explains how to install and configure **Open Source Mano (OSM)** on Ubuntu 22.04.
 
 ---
 
