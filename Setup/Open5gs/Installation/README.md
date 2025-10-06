@@ -19,7 +19,7 @@ This guide explains how to install and configure **Open5GS Core Network** as a K
 **OSM is required** to deploy and manage Open5GS as a Kubernetes Network Function (KNF).
 
 If OSM is **not yet installed**, please complete the OSM installation first before continuing.  
-👉 [View OSM Installation Guide](../osm/Installation/README.md)
+👉 [View OSM Installation Guide](../../OSM/Installation/README.md)
 
 > ⚙️ Ensure OSM is running properly and accessible before proceeding with Open5GS installation.
 
