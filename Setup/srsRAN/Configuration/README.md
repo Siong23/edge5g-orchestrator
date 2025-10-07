@@ -79,10 +79,20 @@ db.subscribers.find().pretty()
 
 ## ✅ 4. Run Components
 ### 📡 4.1 Open one terminals
-- 🖥️ Terminal 1: Start gNB
+- 🗂️ Step 1: Navigate to your srsRAN gNB configuration directory
+```bash
+cd <your_gNB_file_location>
+```
+
+> 💡 Replace `<your_gNB_file_location>` with the actual path where your gNB configuration file is stored,  
+>    For example: `srsRAN_main/srsRAN_Project/configs`.
+
+&nbsp;
+
+- 🖥️ Step 2: Start gNB
 ```bash
 sudo gnb -c <your_gNB_filename>
 ```
 
-> 💡 Replace `<your_gnb_file.yaml>` with your actual gNB config file name,  
+> 💡 Replace `<your_gNB_file.yaml>` with your actual gNB config file name,  
 >    For example: `open5gs_gnb.yaml`.
