@@ -148,7 +148,7 @@ db.subscribers.find().pretty()
 ### 📡 4.1 Open three terminals
 - 🖥️ Terminal 1: Start gNB
 ```bash
-./build/nr-gnb -c config/<your_gnb_file.yaml>
+sudo ./build/nr-gnb -c config/<your_gnb_file.yaml>
 ```
 
 > 💡 Replace `<your_gnb_file.yaml>` with your actual gNB config file name,  
@@ -158,7 +158,7 @@ db.subscribers.find().pretty()
 
 - 🖥️ Terminal 2: Start UE
 ```bash
-./build/nr-ue -c config/<your_ue_file.yaml>
+sudo ./build/nr-ue -c config/<your_ue_file.yaml>
 ```
 
 > 💡 Replace `<your_ue_file.yaml>` with your actual gNB config file name,  
